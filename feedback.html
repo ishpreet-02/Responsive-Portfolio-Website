@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image" href="imagesev2/nd logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Feedback Form</title>
+    <link rel="stylesheet" href="feedback.css">
+    <script>
+        // Function to validate the form
+        function validateForm(event) {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+            const rating = document.getElementById('rating').value;
+
+            if (!name || !email || !feedback || !rating) {
+                alert("All fields are required.");
+                event.preventDefault(); // Prevent form submission
+            } else {
+                alert("Thank you for your feedback!");
+                document.getElementById('success-message').style.display = 'block'; // Show success message
+            }
+        }
+
+        // Function to validate file upload
+        function validateFileUpload() {
+            const fileInput = document.getElementById('file-upload');
+            const allowedExtensions = /(\.pdf|\.doc|\.docx)$/i;
+
+            if (fileInput.files.length > 0 && !allowedExtensions.exec(fileInput.value)) {
+                alert("Please upload a valid file (PDF or DOC/DOCX).");
+                fileInput.value = ''; // Clear the input
+            } else {
+                document.getElementById('upload-success-message').style.display = 'block'; // Show upload success message
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="videoev2/feedback.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="container">
+        <h1>User Feedback</h1>
+        <form action="/submit-feedback" method="post" onsubmit="validateForm(event)">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+
+            <div class="form-control">
+                <label for="feedback">Feedback</label>
+                <textarea id="feedback" name="feedback" rows="4" placeholder="Your feedback" required></textarea>
+            </div>
+
+            <div class="form-control">
+                <label for="rating">Rating</label>
+                <select id="rating" name="rating" required>
+                    <option value="">Select a rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <div id="success-message" style="display:none; color: rgb(48, 237, 48); margin-top: 10px;">
+            Your feedback has been submitted successfully!
+        </div>
+    </div>
+    <div class="upload-container">
+        <label for="file-upload" class="upload-label">
+            Upload CV
+        </label>
+        <input type="file" id="file-upload" class="upload-input" accept=".pdf,.doc,.docx" onchange="validateFileUpload()" />
+        <div id="upload-success-message" style="display:none; color: rgb(33, 244, 33); margin-top: 10px;">
+            File uploaded successfully!
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="button">
+        <a href="skillbarrating.html" class="btn" style="text-decoration: none;">Rate My Work</a>
+    </div>
+    
+</body>
+
+</html>

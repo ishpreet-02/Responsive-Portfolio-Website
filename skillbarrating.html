@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image" href="imagesev2/nd logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Bars</title>
+    <link rel="stylesheet" href="skillbarrating.css">
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="videoev2/skillrating.mp4" type="video/mp4">
+           
+        </video>
+    </div>
+
+    <div class="container">
+        <h1>Rate My Work According To You</h1>
+        <div class="skill">
+            <label for="skill1">HTML</label>
+            <div class="bar" id="skill1" data-skill="80"></div>
+            <button onclick="rateSkill('skill1')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill2">CSS</label>
+            <div class="bar" id="skill2" data-skill="70"></div>
+            <button onclick="rateSkill('skill2')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill3">JavaScript</label>
+            <div class="bar" id="skill3" data-skill="90"></div>
+            <button onclick="rateSkill('skill3')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill4">Python</label>
+            <div class="bar" id="skill4" data-skill="85"></div>
+            <button onclick="rateSkill('skill4')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill5">Java</label>
+            <div class="bar" id="skill5" data-skill="75"></div>
+            <button onclick="rateSkill('skill5')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill6">C#</label>
+            <div class="bar" id="skill6" data-skill="60"></div>
+            <button onclick="rateSkill('skill6')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill7">PHP</label>
+            <div class="bar" id="skill7" data-skill="65"></div>
+            <button onclick="rateSkill('skill7')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill8">Ruby</label>
+            <div class="bar" id="skill8" data-skill="50"></div>
+            <button onclick="rateSkill('skill8')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill9">SQL</label>
+            <div class="bar" id="skill9" data-skill="80"></div>
+            <button onclick="rateSkill('skill9')">Rate</button>
+            
+        </div>
+        <div class="skill">
+            <label for="skill10">React</label>
+            <div class="bar" id="skill10" data-skill="70"></div>
+            <button onclick="rateSkill('skill10')">Rate</button>
+            
+        </div>
+    </div>
+    <script >
+        function rateSkill(skillId) {
+            const skillBar = document.getElementById(skillId);
+            let currentSkill = parseInt(skillBar.getAttribute('data-skill'));
+            const rating = prompt(`Rate your skill in ${skillId.replace('skill', '')} (1-100):`);
+        
+            // Validate the input
+            if (rating !== null) {
+                const ratingValue = parseInt(rating);
+                if (ratingValue >= 1 && ratingValue <= 100) {
+                    currentSkill = Math.min(currentSkill + ratingValue, 100); 
+                    skillBar.setAttribute('data-skill', currentSkill);
+                    
+                    // Update the width of the skill bar
+                    skillBar.querySelector('.bar').style.width = currentSkill + '%';
+        
+                    // Update the displayed skill value
+                    skillBar.querySelector('.skill-value').textContent = currentSkill;
+                } else {
+                    alert('Please enter a valid rating between 1 and 100.');
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const bars = document.querySelectorAll('.skill-bar');
+            bars.forEach(bar => {
+                const skillLevel = bar.getAttribute('data-skill');
+                bar.querySelector('.bar').style.width = skillLevel + '%';
+                bar.querySelector('.skill-value').textContent = skillLevel; // Initialize the displayed skill value
+            });
+        });
+        </script>
+</body>
+
+</html>
