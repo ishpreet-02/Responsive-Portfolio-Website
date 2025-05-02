@@ -72,10 +72,10 @@ body {
     background: linear-gradient(to right, #05b4ff, #007bff);
 }
 
-.progress[data-skill="49%"] {
+/* .progress[data-skill="49%"] {
     width: 49%;
     background: linear-gradient(to right, #ff818f, #ff4d5b);
-}
+} */
 
 @keyframes fillBar {
     from {
