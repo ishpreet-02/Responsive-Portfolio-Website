@@ -1,0 +1,614 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image" href="imagesev2/nd logo.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Creative Design Services - Devloper</title>
+    <link rel="stylesheet" type="text/css" href="ev2light.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <style>
+        /* Creative Design Page Specific Styles */
+        .creative-header {
+            background: linear-gradient(to right, 
+#f8f9fa, 
+#e9ecef);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .creative-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .creative-header h1 span {
+            color: #0ef;
+        }
+        .creative-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(14, 255, 255, 0.1);
+            animation: float 15s infinite ease-in-out;
+        }
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        .shape:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            bottom: 30%;
+            right: 25%;
+            animation-delay: 6s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        .creative-process {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .process-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .process-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .process-title h2 span {
+            color: #0ef;
+        }
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .step {
+            flex: 1 1 250px;
+            max-width: 350px;
+            padding: 30px;
+            background: 
+#f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .step:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .step:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+            background: #0ef;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.5s ease;
+            z-index: -1;
+        }
+        .step:hover:before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .step-icon {
+            font-size: 3rem;
+            color: #0ef;
+            margin-bottom: 20px;
+        }
+        .step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        .step p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .projects {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, 
+#f8f9fa, #fff);
+        }
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .projects-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .projects-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .projects-title h2 span {
+            color: #0ef;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .project-item {
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        .project-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .project-item:hover .project-image img {
+            transform: scale(1.1);
+        }
+        .project-info {
+            padding: 20px;
+            background: #fff;
+        }
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .project-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: #0ef;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .project-link:hover {
+            color: #0bc;
+        }
+        .project-link i {
+            margin-left: 5px;
+        }
+        .tools {
+            padding: 80px 0;
+            background-color: 
+#f8f9fa;
+        }
+        .tools-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .tools-title {
+            margin-bottom: 60px;
+        }
+        .tools-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .tools-title h2 span {
+            color: #0ef;
+        }
+        .tools-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+        .tool-item {
+            flex: 0 0 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .tool-item:hover {
+            transform: translateY(-10px);
+        }
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            color: #0ef;
+        }
+        .tool-name {
+            font-weight: 600;
+        }
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(to right, 
+#f8f9fa, 
+#e9ecef);
+            text-align: center;
+        }
+        .cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .cta h2 span {
+            color: #0ef;
+        }
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .cta-primary {
+            background: #0ef;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-primary:hover {
+            background: #0bc;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .cta-secondary {
+            background: transparent;
+            color: #333;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #0ef;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-secondary:hover {
+            background: #0ef;
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .creative-header h1 {
+                font-size: 2.5rem;
+            }
+            .creative-header p {
+                font-size: 1rem;
+            }
+            .process-steps, .projects-grid {
+                gap: 20px;
+            }
+            .cta h2 {
+                font-size: 2rem;
+            }
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <div class="headmain">
+        <header>
+            <a href="#" class="logo">Devlo<span>per</span>..</a>
+            <ul class="navlist">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#services" class="active">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="btn"><a href="ev2.html">Dark-Mode</a></div>
+        </header>
+    </div>
+    <!-- Creative Header Section -->
+    <section class="creative-header">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <h1>Creative <span>Design</span> Services</h1>
+        <p>Transform your vision into captivating visual experiences that engage, inspire, and convert. My creative design services blend artistry with strategy to create meaningful designs that resonate with your audience.</p>
+    </section>
+    <!-- Creative Process Section -->
+    <section class="creative-process">
+        <div class="process-container">
+            <div class="process-title">
+                <h2>My Creative <span>Process</span></h2>
+                <p>A structured yet flexible approach to bringing your creative vision to life</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-bulb'></i>
+                    </div>
+                    <h3>Discovery & Research</h3>
+                    <p>I start by understanding your brand, audience, and goals. Thorough research helps identify opportunities and insights that inform the creative direction.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-pencil'></i>
+                    </div>
+                    <h3>Concept Development</h3>
+                    <p>Creating multiple design concepts that align with your objectives, exploring different creative approaches to find the perfect solution.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-palette'></i>
+                    </div>
+                    <h3>Design Execution</h3>
+                    <p>Bringing the approved concept to life with precision and attention to detail, ensuring every element serves a purpose and enhances the overall design.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-revision'></i>
+                    </div>
+                    <h3>Refinement</h3>
+                    <p>Iterative improvements based on feedback, perfecting the design to ensure it achieves maximum impact and effectiveness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section class="projects">
+        <div class="projects-container">
+            <div class="projects-title">
+                <h2>Creative <span>Projects</span></h2>
+                <p>Explore some of my recent creative design work</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="project-image">
+                        <img src="imagesev2/portfolioimg.jpg" alt="Brand Identity Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Brand Identity Design</h3>
+                        <p>Complete visual identity system for a tech startup, including logo, color palette, typography, and brand guidelines.</p>
+                        <a href="#" class="project-link">View Project <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-image">
+                        <img src="imagesev2/portfolioimg.jpg" alt="UI/UX Design Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>UI/UX Design</h3>
+                        <p>User interface and experience design for a mobile application, focusing on intuitive navigation and engaging visuals.</p>
+                        <a href="#" class="project-link">View Project <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+                <div class="project-item">
+                    <div class="project-image">
+                        <img src="imagesev2/portfolioimg.jpg" alt="Print Design Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Print Collateral</h3>
+                        <p>Marketing materials including brochures, business cards, and promotional items with cohesive design language.</p>
+                        <a href="#" class="project-link">View Project <i class='bx bx-right-arrow-alt'></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tools Section -->
+    <section class="tools">
+        <div class="tools-container">
+            <div class="tools-title">
+                <h2>Creative <span>Toolkit</span></h2>
+                <p>The industry-leading tools I use to create exceptional designs</p>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bxl-adobe'></i>
+                    </div>
+                    <div class="tool-name">Photoshop</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bxl-adobe'></i>
+                    </div>
+                    <div class="tool-name">Illustrator</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bxl-figma'></i>
+                    </div>
+                    <div class="tool-name">Figma</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bxl-adobe'></i>
+                    </div>
+                    <div class="tool-name">XD</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bxl-sketch'></i>
+                    </div>
+                    <div class="tool-name">Sketch</div>
+                </div>
+                <div class="tool-item">
+                    <div class="tool-icon">
+                        <i class='bx bx-palette'></i>
+                    </div>
+                    <div class="tool-name">InDesign</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Offered Section -->
+    <section class="creative-process">
+        <div class="process-container">
+            <div class="process-title">
+                <h2>Creative Design <span>Services</span></h2>
+                <p>Comprehensive creative solutions tailored to your specific needs</p>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-palette'></i>
+                    </div>
+                    <h3>Brand Identity</h3>
+                    <p>Logo design, color palettes, typography systems, brand guidelines, visual identity development, and brand strategy consulting.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-window-alt'></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>User interface design, user experience optimization, wireframing, prototyping, interaction design, and usability testing.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-book-open'></i>
+                    </div>
+                    <h3>Print Design</h3>
+                    <p>Business cards, brochures, flyers, posters, packaging design, catalogs, annual reports, and other marketing collateral.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">
+                        <i class='bx bx-image'></i>
+                    </div>
+                    <h3>Digital Graphics</h3>
+                    <p>Social media graphics, web banners, email templates, digital ads, infographics, presentations, and other online visuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container">
+            <h2>Ready to <span>Transform</span> Your Brand?</h2>
+            <p>Let's collaborate to create distinctive designs that elevate your brand and connect with your audience. Whether you need a complete brand overhaul or specific creative assets, I'm here to bring your vision to life.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="cta-primary">Start a Project</a>
+                <a href="index.html#portfolio" class="cta-secondary">View Portfolio</a>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section -->
+    <section class="end">
+        <div class="last-text">
+            <p>Design By NKD.coders</p>
+        </div>
+        <div class="top">
+            <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+        <div class="btn">
+            <a href="feedback.html"><i class='bx bx-right-arrow-alt'>Feedback..</i></a>
+        </div>
+    </section>
+    <script>
+        // Simple JavaScript to handle smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        // Mobile menu toggle
+        const menuIcon = document.querySelector('#menu-icon');
+        const navlist = document.querySelector('.navlist');
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('bx-x');
+            navlist.classList.toggle('open');
+        });
+        // Close menu when clicking on a nav item
+        const navItems = document.querySelectorAll('.navlist li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuIcon.classList.remove('bx-x');
+                navlist.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
