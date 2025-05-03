@@ -1,5 +1,6 @@
 body {
   display: flex;
+//added new features here//
   justify-content: center;
   align-items: center;
   flex-direction: column;
