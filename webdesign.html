@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image" href="imagesev2/nd logo.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Design Services - Devloper Portfolio</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+            scroll-padding-top: 3rem;
+        }
+
+        :root {
+            --bg-color: #191919;
+            --second-bg-color: #101010;
+            --main-color: #2ecc71;
+            --text-color: #fff;
+            --second-color: #ccc;
+            --other-color: #999;
+            --big-font: 5rem;
+            --h2-font: 3rem;
+            --h3-font: 2rem;
+            --p-font: 1.1rem;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .headmain {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            right: 0;
+            z-index: 1000;
+            background: transparent;
+            padding: 22px 16%;
+            border-bottom: 1px solid transparent;
+            transition: all .40s ease;
+        }
+
+        .headmain.sticky {
+            background: var(--bg-color);
+            padding: 14px 16%;
+            box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            color: var(--text-color);
+            font-size: 35px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--main-color);
+        }
+
+        .navlist {
+            display: flex;
+        }
+
+        .navlist a {
+            color: var(--second-color);
+            font-weight: 600;
+            padding: 10px 25px;
+            transition: all .40s ease;
+        }
+
+        .navlist a:hover {
+            color: var(--main-color);
+        }
+
+        .navlist a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 36px;
+            color: var(--text-color);
+            z-index: 10001;
+            cursor: pointer;
+            display: none;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 11px 26px;
+            background: var(--main-color);
+            color: var(--text-color);
+            border: 2px solid var(--main-color);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all .40s ease;
+            margin-right: 15px;
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--main-color);
+        }
+
+        section {
+            padding: 160px 16% 90px;
+        }
+
+        .main-text {
+            text-align: center;
+        }
+
+        .main-text h2 {
+            font-size: var(--h2-font);
+            margin-bottom: 10px;
+        }
+
+        .main-text h2 span {
+            color: var(--main-color);
+        }
+
+        .services-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 4.5rem;
+        }
+
+        .feature-box {
+            background: var(--second-bg-color);
+            padding: 35px 45px;
+            border-radius: 8px;
+            transition: all .45s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            cursor: pointer;
+        }
+
+        .s-icons {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+
+        .h-text h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .h-text p {
+            color: var(--second-color);
+            font-size: var(--p-font);
+            line-height: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .process-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 4.5rem;
+        }
+
+        .process-box {
+            background: var(--second-bg-color);
+            padding: 35px 45px;
+            border-radius: 8px;
+            transition: all .45s ease;
+            text-align: center;
+        }
+
+        .process-box:hover {
+            transform: translateY(-8px);
+            cursor: pointer;
+        }
+
+        .process-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .process-box p {
+            color: var(--second-color);
+            font-size: var(--p-font);
+            line-height: 30px;
+            margin-bottom: 1.5rem;
+        }
+
+        .number-circle {
+            background: var(--main-color);
+            color: var(--text-color);
+            font-size: 24px;
+            font-weight: 700;
+            height: 50px;
+            width: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .pricing {
+            background: var(--second-bg-color);
+        }
+
+        .pricing-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 4.5rem;
+        }
+
+        .pricing-box {
+            background: var(--bg-color);
+            padding: 35px 45px;
+            border-radius: 8px;
+            transition: all .45s ease;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .pricing-box:hover {
+            transform: translateY(-8px);
+            cursor: pointer;
+            border: 2px solid var(--main-color);
+        }
+
+        .pricing-box h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 40px;
+            font-weight: 700;
+            color: var(--main-color);
+            margin-bottom: 25px;
+        }
+
+        .price span {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--second-color);
+        }
+
+        .pricing-box ul {
+            margin-bottom: 30px;
+        }
+
+        .pricing-box ul li {
+            color: var(--second-color);
+            font-size: var(--p-font);
+            line-height: 30px;
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+            align-items: center;
+            gap: 2.5rem;
+            margin-top: 4.5rem;
+        }
+
+        .contact-text h2 {
+            font-size: var(--h2-font);
+            margin-bottom: 15px;
+        }
+
+        .contact-text h2 span {
+            color: var(--main-color);
+        }
+
+        .contact-text p {
+            color: var(--second-color);
+            font-size: var(--p-font);
+            line-height: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .end {
+            background: var(--second-bg-color);
+            padding: 20px 16%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .last-text p {
+            color: var(--second-color);
+            font-size: 14px;
+        }
+
+        .top i {
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 20px;
+            color: var(--text-color);
+            background: var(--main-color);
+        }
+
+        .portfolio-img {
+            max-width: 100%;
+            width: 700px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 1380px) {
+            section {
+                padding: 130px 8% 60px;
+            }
+            .headmain {
+                padding: 12px 8%;
+            }
+            .end {
+                padding: 15px 8%;
+            }
+        }
+
+        @media (max-width: 970px) {
+            :root {
+                --big-font: 4rem;
+                --h2-font: 2.5rem;
+                --p-font: 1rem;
+            }
+            section {
+                padding: 90px 8% 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .headmain {
+                padding: 10px 4%;
+            }
+            #menu-icon {
+                display: block;
+            }
+            .navlist {
+                position: absolute;
+                top: -500px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg-color);
+                text-align: left;
+                transition: all .40s ease;
+            }
+            .navlist a {
+                display: block;
+                padding: 1rem;
+                margin: 1rem;
+            }
+            .navlist.active {
+                top: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="headmain">
+        <header>
+            <a href="index.html" class="logo">Devlo<span>per</span>..</a>
+            <ul class="navlist">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#services" class="active">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icon"></div>
+            <div class="btn"><a href="ev2light.html">Light-Mode</a></div>
+        </header>
+    </div>
+
+    <!-- Web Design Main Section -->
+    <section class="services" id="webdesign">
+        <div class="main-text">
+            <h2>Web <span>Design</span> Services</h2>
+            <p>Creating stunning, functional websites tailored to your business needs</p>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <img src="https://www.netleafinfosoft.com/our-blog/wp-content/uploads/2021/02/Professional-Web-Design.jpg" alt="Web Design Service" class="portfolio-img">
+        </div>
+
+        <div class="h-text">
+            <p>At Devloper, we specialize in creating beautiful, functional websites that help businesses establish a strong online presence. Our web design services focus on delivering user-friendly, responsive, and visually appealing websites that not only look great but also drive results. With our expertise in the latest web technologies and design principles, we ensure your website stands out from the competition and effectively communicates your brand message to your target audience.</p>
+        </div>
+
+        <div class="services-content">
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-laptop'></i>
+                </div>
+                <div class="h-text">
+                    <h3>Responsive Design</h3>
+                    <p>Our websites look and function perfectly on all devices - from desktop computers to tablets and smartphones. We ensure optimal viewing experiences with easy navigation and minimal resizing.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-palette'></i>
+                </div>
+                <div class="h-text">
+                    <h3>UI/UX Design</h3>
+                    <p>We create intuitive user interfaces and seamless user experiences that guide visitors through your website effectively, increasing engagement and conversion rates.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-code-alt'></i>
+                </div>
+                <div class="h-text">
+                    <h3>Custom Development</h3>
+                    <p>Each website is built from scratch to match your specific requirements and business goals, ensuring a unique online presence that stands out from template-based sites.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-line-chart'></i>
+                </div>
+                <div class="h-text">
+                    <h3>SEO-Friendly</h3>
+                    <p>Our websites are built with search engine optimization in mind, ensuring better visibility on search engines and helping potential customers find your business online.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-rocket'></i>
+                </div>
+                <div class="h-text">
+                    <h3>Fast Loading</h3>
+                    <p>We optimize all elements of your website to ensure quick loading times, which improves user experience and positively impacts your search engine rankings.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="s-icons">
+                    <i class='bx bx-lock-alt'></i>
+                </div>
+                <div class="h-text">
+                    <h3>Security Focus</h3>
+                    <p>We implement the latest security practices to protect your website and your users' data from potential threats and vulnerabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process Section -->
+    <section class="process" id="process">
+        <div class="main-text">
+            <h2>Our <span>Design</span> Process</h2>
+            <p>How we transform your ideas into stunning websites</p>
+        </div>
+
+        <div class="process-content">
+            <div class="process-box">
+                <div class="number-circle">1</div>
+                <h3>Discovery</h3>
+                <p>We start by understanding your business, goals, target audience, and requirements to ensure our solution meets your specific needs.</p>
+            </div>
+
+            <div class="process-box">
+                <div class="number-circle">2</div>
+                <h3>Planning</h3>
+                <p>We create a comprehensive plan including sitemap, features, content structure, and technical requirements for your website.</p>
+            </div>
+
+            <div class="process-box">
+                <div class="number-circle">3</div>
+                <h3>Design</h3>
+                <p>Our designers create wireframes and mockups of your website's visual layout, ensuring it aligns with your brand identity.</p>
+            </div>
+
+            <div class="process-box">
+                <div class="number-circle">4</div>
+                <h3>Development</h3>
+                <p>We transform designs into a fully functional website, writing clean code and implementing all required features and functionalities.</p>
+            </div>
+
+            <div class="process-box">
+                <div class="number-circle">5</div>
+                <h3>Testing</h3>
+                <p>We thoroughly test your website across different devices and browsers to ensure flawless performance and user experience.</p>
+            </div>
+
+            <div class="process-box">
+                <div class="number-circle">6</div>
+                <h3>Launch</h3>
+                <p>Once approved, we deploy your website to a live server, ensuring proper configuration and setup for optimal performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="main-text">
+            <h2>Our <span>Pricing</span> Plans</h2>
+            <p>Affordable web design solutions for businesses of all sizes</p>
+        </div>
+
+        <div class="pricing-content">
+            <div class="pricing-box">
+                <h3>Basic Package</h3>
+                <div class="price">$999<span>/project</span></div>
+                <ul>
+                    <li>5 Page Website</li>
+                    <li>Responsive Design</li>
+                    <li>Contact Form</li>
+                    <li>SEO Basics</li>
+                    <li>Social Media Integration</li>
+                    <li>1 Month Support</li>
+                </ul>
+                <a href="#contact" class="btn">Choose Plan</a>
+            </div>
+
+            <div class="pricing-box">
+                <h3>Business Package</h3>
+                <div class="price">$1999<span>/project</span></div>
+                <ul>
+                    <li>10 Page Website</li>
+                    <li>Responsive Design</li>
+                    <li>Advanced Contact Forms</li>
+                    <li>Full SEO Setup</li>
+                    <li>Blog Integration</li>
+                    <li>3 Months Support</li>
+                </ul>
+                <a href="#contact" class="btn">Choose Plan</a>
+            </div>
+
+            <div class="pricing-box">
+                <h3>Premium Package</h3>
+                <div class="price">$3499<span>/project</span></div>
+                <ul>
+                    <li>20+ Page Website</li>
+                    <li>Responsive Design</li>
+                    <li>E-commerce Integration</li>
+                    <li>Advanced SEO Strategy</li>
+                    <li>Custom Features</li>
+                    <li>6 Months Support</li>
+                </ul>
+                <a href="#contact" class="btn">Choose Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Showcase Section -->
+    <section class="portfolio-showcase" id="showcase">
+        <div class="main-text">
+            <h2>Our <span>Web Design</span> Portfolio</h2>
+            <p>Some of our recent web design projects</p>
+        </div>
+
+        <div class="services-content">
+            <div class="feature-box">
+                <img src="imagesev2/portfolioimg.jpg" alt="Portfolio Project 1" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                <div class="h-text">
+                    <h3>E-commerce Website</h3>
+                    <p>A fully responsive e-commerce platform with advanced filtering options, secure payment gateways, and intuitive product management system.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <img src="imagesev2/portfolioimg.jpg" alt="Portfolio Project 2" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                <div class="h-text">
+                    <h3>Corporate Website</h3>
+                    <p>A professional business website featuring modern design elements, interactive sections, and advanced contact functionality.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <img src="imagesev2/portfolioimg.jpg" alt="Portfolio Project 3" style="width: 100%; border-radius: 8px; margin-bottom: 15px;">
+                <div class="h-text">
+                    <h3>Portfolio Website</h3>
+                    <p>A creative portfolio website showcasing projects with interactive galleries, smooth animations, and optimized for fast loading.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="projgallery.html" class="btn">View All Projects</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="main-text">
+            <h2>Get <span>In Touch</span></h2>
+            <p>Ready to discuss your web design project?</p>
+        </div>
+
+        <div class="contact-section">
+            <div class="contact-text">
+                <h2>Let's Create Your <span>Dream Website</span></h2>
+                <p>Whether you're looking to create a new website or redesign an existing one, we're here to help. Fill out the form to discuss your project requirements, timeline, and budget. Our team will get back to you within 24 hours.</p>
+                <div class="list" style="margin-bottom: 30px;">
+                    <li><a href="#">8199922XXX</a></li>
+                    <li><a href="#">NKD25@gmail.com</a></li>
+                </div>
+                <div class="contact-icons">
+                    <a href="https://github.com/"><i class='bx bxl-github'></i></a>
+                    <a href="https://x.com/?lang=en-in"><i class='bx bxl-twitter'></i></a>
+                    <a href="https://www.instagram.com/?hl=en"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.youtube.com/youtube"><i class='bx bxl-youtube'></i></a>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" action="/submit-form" method="POST">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 12px; background: var(--second-bg-color); color: var(--text-color); border: none; outline: none; margin-bottom: 15px; border-radius: 8px;">
+
+                    <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 12px; background: var(--second-bg-color); color: var(--text-color); border: none; outline: none; margin-bottom: 15px; border-radius: 8px;">
+
+                    <input type="tel" id="mobile" name="mobile" placeholder="Your Mobile Number" required pattern="[0-9]{10}" style="width: 100%; padding: 12px; background: var(--second-bg-color); color: var(--text-color); border: none; outline: none; margin-bottom: 15px; border-radius: 8px;">
+
+                    <select name="service" id="service" required style="width: 100%; padding: 12px; background: var(--second-bg-color); color: var(--text-color); border: none; outline: none; margin-bottom: 15px; border-radius: 8px;">
+                        <option value="" disabled selected>Select Package</option>
+                        <option value="basic">Basic Package</option>
+                        <option value="business">Business Package</option>
+                        <option value="premium">Premium Package</option>
+                        <option value="custom">Custom Requirements</option>
+                    </select>
+
+                    <textarea id="message" name="message" cols="35" rows="10" placeholder="Tell Us About Your Project" required style="width: 100%; padding: 12px; background: var(--second-bg-color); color: var(--text-color); border: none; outline: none; margin-bottom: 15px; border-radius: 8px; resize: none;"></textarea>
+
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+                <div id="successMessage" style="display:none; color: var(--main-color); margin-top: 10px;">
+                    Your message has been sent successfully!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- End Section -->
+    <section class="end">
+        <div class="last-text">
+            <p>Design By NKD.coders</p>
+        </div>
+        <div class="top">
+            <a href="#webdesign"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
+        <div class="btn">
+            <a href="index.html#services"><i class='bx bx-left-arrow-alt'>Back to Services</i></a>
+        </div>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Success Message for Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.headmain');
+            header.classList.toggle('sticky', window.scrollY > 100);
+        });
+
+        // Mobile Menu Toggle
+        const menuIcon = document.querySelector('#menu-icon');
+        const navlist = document.querySelector('.navlist');
+        
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle('bx-x');
+            navlist.classList.toggle('active');
+        };
+
+        // Close Menu When Clicking a Nav Item
+        const navItems = document.querySelectorAll('.navlist a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuIcon.classList.remove('bx-x');
+                navlist.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
