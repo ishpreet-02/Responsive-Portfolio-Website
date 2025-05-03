@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
-	//this is done using this code.//
+
     // Responsive Navigation Menu
     const menuIcon = document.getElementById('menu-icon');
     const navList = document.querySelector('.navlist');
