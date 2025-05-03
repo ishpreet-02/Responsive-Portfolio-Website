@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel="icon" type="image" href="imagesev2/nd logo.jpg">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Theme Design - Responsive Portfolio Website</title>
+	<!---custom css link---->
+	<link rel="stylesheet" type="text/css" href="ev2 .css">
+	<link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+	<style>
+		/* Additional styles specific to the theme design page */
+		.theme-banner {
+			background: linear-gradient(245deg, #333, #111);
+			padding: 80px 0;
+			text-align: center;
+			margin-bottom: 50px;
+		}
+		
+		.theme-banner h1 {
+			font-size: 3.5rem;
+			color: #fff;
+			margin-bottom: 20px;
+		}
+		
+		.theme-banner span {
+			color: #0ef;
+		}
+		
+		.theme-banner p {
+			color: #fff;
+			font-size: 1.1rem;
+			max-width: 700px;
+			margin: 0 auto;
+			line-height: 1.8;
+		}
+		
+		.themes-container {
+			padding: 0 10%;
+			margin-bottom: 80px;
+		}
+		
+		.theme-row {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+			grid-gap: 40px;
+			margin-top: 50px;
+		}
+		
+		.theme-box {
+			background: #12141c;
+			border-radius: 15px;
+			padding: 40px 30px;
+			transition: all .40s ease;
+		}
+		
+		.theme-box:hover {
+			transform: translateY(-15px);
+			box-shadow: 0px 15px 30px rgba(0, 238, 255, 0.2);
+		}
+		
+		.theme-box img {
+			max-width: 100%;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			height: 200px;
+			object-fit: cover;
+		}
+		
+		.theme-box h3 {
+			font-size: 1.8rem;
+			font-weight: 600;
+			margin-bottom: 15px;
+			color: #fff;
+		}
+		
+		.theme-box p {
+			color: #fcfcfc;
+			font-size: 1rem;
+			line-height: 1.7;
+			margin-bottom: 25px;
+		}
+		
+		.process-section {
+			padding: 80px 10%;
+			background: #191919;
+		}
+		
+		.process-section h2 {
+			text-align: center;
+			font-size: 2.5rem;
+			color: #fff;
+			margin-bottom: 50px;
+		}
+		
+		.process-section span {
+			color: #0ef;
+		}
+		
+		.process-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			grid-gap: 30px;
+		}
+		
+		.process-step {
+			background: #12141c;
+			border-radius: 10px;
+			padding: 30px;
+			text-align: center;
+			transition: all .40s ease;
+		}
+		
+		.process-step:hover {
+			transform: translateY(-10px);
+		}
+		
+		.process-step .step-number {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			background: #0ef;
+			color: #191919;
+			font-size: 1.5rem;
+			font-weight: bold;
+			border-radius: 50%;
+			margin-bottom: 15px;
+		}
+		
+		.process-step h4 {
+			font-size: 1.3rem;
+			color: #fff;
+			margin-bottom: 15px;
+		}
+		
+		.process-step p {
+			color: #fcfcfc;
+			font-size: 0.95rem;
+			line-height: 1.6;
+		}
+		
+		.faq-section {
+			padding: 80px 10%;
+		}
+		
+		.faq-section h2 {
+			text-align: center;
+			font-size: 2.5rem;
+			color: #fff;
+			margin-bottom: 50px;
+		}
+		
+		.faq-section span {
+			color: #0ef;
+		}
+		
+		.faq-item {
+			background: #12141c;
+			border-radius: 10px;
+			padding: 30px;
+			margin-bottom: 20px;
+		}
+		
+		.faq-question {
+			font-size: 1.3rem;
+			color: #fff;
+			margin-bottom: 15px;
+			font-weight: 600;
+		}
+		
+		.faq-answer {
+			color: #fcfcfc;
+			font-size: 1rem;
+			line-height: 1.7;
+		}
+		
+		.cta-section {
+			text-align: center;
+			padding: 100px 10% 80px;
+		}
+		
+		.cta-section h2 {
+			font-size: 2.8rem;
+			color: #fff;
+			margin-bottom: 20px;
+		}
+		
+		.cta-section p {
+			color: #fcfcfc;
+			font-size: 1.1rem;
+			max-width: 700px;
+			margin: 0 auto 40px;
+			line-height: 1.7;
+		}
+		
+		.cta-buttons {
+			display: flex;
+			justify-content: center;
+			gap: 20px;
+			flex-wrap: wrap;
+		}
+		
+		@media (max-width: 768px) {
+			.theme-banner {
+				padding: 60px 20px;
+			}
+			
+			.theme-banner h1 {
+				font-size: 2.5rem;
+			}
+			
+			.themes-container,
+			.process-section,
+			.faq-section,
+			.cta-section {
+				padding-left: 5%;
+				padding-right: 5%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<!------Header Section------>
+	<div class="headmain">
+		<header>
+			<a href="index.html" class="logo">Devlo<span>per</span>..</a>
+			<ul class="navlist">
+				<li><a href="index.html#home">Home</a></li>
+				<li><a href="index.html#about">About Me</a></li>
+				<li><a href="index.html#services">Services</a></li>
+				<li><a href="index.html#portfolio">Portfolio</a></li>
+				<li><a href="index.html#contact">Contact</a></li>
+			</ul>
+			<div class="bx bx-menu" id="menu-icon"></div>
+			<div class="btn"><a href="ev2light.html">Light-Mode</a></div>
+		</header>
+	</div>
+	<div class="right"></div>
+	<div class="design">
+		<div class="circle"></div>
+		<div class="circle"></div>
+	</div>
+
+	<!-- Theme Design Banner -->
+	<section class="theme-banner">
+		<h1>Theme <span>Design</span></h1>
+		<p>Creating captivating and functional themes that enhance user experience and elevate your brand's digital presence</p>
+	</section>
+
+	<!-- Theme Showcase Section -->
+	<section class="themes-container">
+		<h2><span>Our</span> Theme Solutions</h2>
+		<div class="theme-row">
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="E-commerce Theme">
+				<h3>E-commerce Themes</h3>
+				<p>Custom-designed themes optimized for online stores with seamless shopping experiences, product showcases, and conversion-focused layouts.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="Portfolio Theme">
+				<h3>Portfolio Themes</h3>
+				<p>Elegant and visually appealing themes designed to showcase creative work, projects, and professional accomplishments with style.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="Corporate Theme">
+				<h3>Corporate Themes</h3>
+				<p>Professional themes for business websites that convey trust, authority, and brand identity while providing excellent user experience.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+		</div>
+		
+		<div class="theme-row" style="margin-top: 40px;">
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="Blog Theme">
+				<h3>Blog Themes</h3>
+				<p>Reader-friendly and content-focused themes with optimized typography, layout, and features for engaging content delivery.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="Educational Theme">
+				<h3>Educational Themes</h3>
+				<p>Specialized themes for educational institutions, online courses, and learning platforms with intuitive navigation and organization.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+
+			<div class="theme-box">
+				<img src="imagesev2/portfolioimg.jpg" alt="Custom Theme">
+				<h3>Custom Themes</h3>
+				<p>Bespoke theme solutions tailored precisely to your requirements, brand guidelines, and specific functionalities.</p>
+				<a href="#" class="btn">View Examples</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Design Process Section -->
+	<section class="process-section">
+		<h2>Our <span>Process</span></h2>
+		<div class="process-grid">
+			<div class="process-step">
+				<div class="step-number">1</div>
+				<h4>Discovery</h4>
+				<p>We begin by understanding your business goals, target audience, and specific requirements for the theme.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">2</div>
+				<h4>Research</h4>
+				<p>Analyzing competitor themes, industry standards, and user expectations to inform our design approach.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">3</div>
+				<h4>Wireframing</h4>
+				<p>Creating basic layout structures and navigational frameworks to plan the user experience flow.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">4</div>
+				<h4>Design</h4>
+				<p>Developing visual designs with color schemes, typography, imagery, and UI elements aligned with your brand.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">5</div>
+				<h4>Development</h4>
+				<p>Coding the design into a functional, responsive theme with proper optimization and clean code.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">6</div>
+				<h4>Testing</h4>
+				<p>Rigorous testing on multiple devices and browsers to ensure compatibility and performance.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">7</div>
+				<h4>Deployment</h4>
+				<p>Installing the theme on your platform with proper configuration and content integration.</p>
+			</div>
+
+			<div class="process-step">
+				<div class="step-number">8</div>
+				<h4>Support</h4>
+				<p>Providing ongoing support, maintenance, and updates to keep your theme running smoothly.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- FAQ Section -->
+	<section class="faq-section">
+		<h2>Frequently <span>Asked</span> Questions</h2>
+		
+		<div class="faq-item">
+			<div class="faq-question">What platforms do you design themes for?</div>
+			<div class="faq-answer">We design themes for WordPress, Shopify, Squarespace, Webflow, and custom platforms. Our expertise spans across major CMS and e-commerce platforms to deliver optimized themes for your specific needs.</div>
+		</div>
+		
+		<div class="faq-item">
+			<div class="faq-question">How long does it take to create a custom theme?</div>
+			<div class="faq-answer">The timeline varies depending on the complexity of the project. A basic theme can be completed in 2-3 weeks, while more complex themes with custom functionality may take 4-8 weeks. We'll provide a specific timeline during our initial consultation.</div>
+		</div>
+		
+		<div class="faq-item">
+			<div class="faq-question">Do you offer theme maintenance after completion?</div>
+			<div class="faq-answer">Yes, we offer ongoing maintenance packages to keep your theme updated, secure, and functioning optimally. This includes regular updates, compatibility checks, and technical support.</div>
+		</div>
+		
+		<div class="faq-item">
+			<div class="faq-question">Can you redesign an existing theme?</div>
+			<div class="faq-answer">Absolutely! We can work with your existing theme to improve its design, functionality, and performance. Our team can analyze your current theme and recommend the best approach for enhancement.</div>
+		</div>
+		
+		<div class="faq-item">
+			<div class="faq-question">Are your themes responsive and mobile-friendly?</div>
+			<div class="faq-answer">Yes, all our themes are built with a mobile-first approach ensuring they look and function perfectly across all devices including smartphones, tablets, laptops, and desktop computers.</div>
+		</div>
+	</section>
+
+	<!-- Call to Action Section -->
+	<section class="cta-section">
+		<h2>Ready to Transform Your <span>Digital Presence</span>?</h2>
+		<p>Let's collaborate to create a theme that perfectly represents your brand and delivers exceptional user experience.</p>
+		<div class="cta-buttons">
+			<a href="index.html#contact" class="btn">Get in Touch</a>
+			<a href="index.html#portfolio" class="btn">View Portfolio</a>
+		</div>
+	</section>
+
+	<!---------End Section---------->
+	<section class="end">
+		<div class="last-text">
+			<p>Design By NKD.coders</p>
+		</div>
+		<div class="top">
+			<a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+		</div>
+		<div class="btn">
+			<a href="feedback.html"><i class='bx bx-right-arrow-alt'>Feedback..</i></a>
+		</div>
+	</section>
+
+	<script>
+		// Menu toggle functionality
+		const menuIcon = document.querySelector('#menu-icon');
+		const navlist = document.querySelector('.navlist');
+
+		menuIcon.onclick = () => {
+			menuIcon.classList.toggle('bx-x');
+			navlist.classList.toggle('open');
+		};
+
+		// Scroll sections
+		const sections = document.querySelectorAll('section');
+		const navLinks = document.querySelectorAll('header ul li a');
+
+		window.onscroll = () => {
+			sections.forEach(sec => {
+				const top = window.scrollY;
+				const offset = sec.offsetTop - 100;
+				const height = sec.offsetHeight;
+				const id = sec.getAttribute('id');
+
+				if (id && top >= offset && top < offset + height) {
+					navLinks.forEach(links => {
+						links.classList.remove('active');
+						document.querySelector('header ul li a[href*=' + id + ']').classList.add('active');
+					});
+				}
+			});
+
+			// Sticky header
+			const header = document.querySelector('header');
+			header.classList.toggle('sticky', window.scrollY > 100);
+
+			// Remove toggle icon and menu
+			menuIcon.classList.remove('bx-x');
+			navlist.classList.remove('open');
+		};
+	</script>
+</body>
+
+</html>
