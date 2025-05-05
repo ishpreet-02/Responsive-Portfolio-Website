@@ -86,7 +86,7 @@ section {
     padding: 160px 15% 120px;
 }
 
-/* .home {
+.home {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -96,7 +96,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-} */
+}
 
 .slide {
     margin-bottom: 20px;
