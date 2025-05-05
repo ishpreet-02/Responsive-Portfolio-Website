@@ -41,7 +41,7 @@ h1 {
 }
 
 textarea {
-    resize: vertical; /* Allows vertical resizing only */
+    resize: vertical; 
 }
 
 button {
