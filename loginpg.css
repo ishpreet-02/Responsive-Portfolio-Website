@@ -14,13 +14,11 @@ body{
 	align-items: center;
 	background: #111;
 }
-/* Stop page from scrolling */
 html, body {
     height: 100%;
     overflow: hidden;
 }
 
-/* Style for video background */
 .video-background {
     position: fixed;
     top: 0;
