@@ -1,4 +1,4 @@
-name: Greet New Contributor for To-Do List Manager
+name: Greet New Contributor for Responsive-Portfolio-Website
 
 on:
   pull_request:
@@ -24,6 +24,6 @@ jobs:
           Write-Host "Hello Mohit-chechi, welcome to the Responsive-Portfolio-Website project!"
           Write-Host "Thank you for your first contribution. We're glad to have you onboard!"
         } else {
-          Write-Host "Hello and welcome to the Responsive-Portfolio-Website project, $actor!"
+          Write-Host "Hello and welcome to the Responsive-Portfolio-Website, $actor!"
           Write-Host "Thank you for your first contribution. We appreciate your help in managing tasks!"
         }
