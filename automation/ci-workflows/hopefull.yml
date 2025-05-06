@@ -1,4 +1,4 @@
-name: Custom Script Runner
+name: "CI pipeline - chechi "
 
 on:
   push:
