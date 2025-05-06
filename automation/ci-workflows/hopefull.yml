@@ -1,4 +1,5 @@
-name: "CI pipeline - chechi "
+
+name: "CI pipeline - chechi and Developer"
 
 on:
   push:
